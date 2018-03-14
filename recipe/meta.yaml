@@ -1,6 +1,6 @@
 {% set name = "DeepGraph" %}
-{% set version = "0.2.0" %}
-{% set sha256 = "50b0079141777ec7b8809a3207f78c860cbed86867d5add3f7a31a8840f0bd81" %}
+{% set version = "0.2.1" %}
+{% set sha256 = "4e7d69c2c03d94647a03e35f7e1a927a1d489a1e47590f4285e2e5bdbd5a608a" %}
 
 package:
   name: {{ name|lower }}
@@ -20,11 +20,11 @@ requirements:
   build:
     - python
     - setuptools
-    - numpy x.x
+    - numpy 1.11
     - toolchain
   run:
     - python
-    - numpy x.x
+    - numpy >=1.11
     - pandas
 
 test:
