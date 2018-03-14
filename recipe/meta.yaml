@@ -20,11 +20,11 @@ requirements:
   build:
     - python
     - setuptools
-    - numpy x.x
+    - numpy 1.11
     - toolchain
   run:
     - python
-    - numpy x.x
+    - numpy >=1.11
     - pandas
 
 test:
