@@ -18,13 +18,14 @@ build:
 
 requirements:
   build:
+    - {{ compiler('c') }}
+  host:
     - python
     - setuptools
-    - numpy x.x
-    - toolchain
+    - numpy
   run:
     - python
-    - numpy x.x
+    - {{ pin_compatible('numpy') }}
     - pandas
 
 test:
