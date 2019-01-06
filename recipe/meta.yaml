@@ -12,16 +12,18 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
-  skip: True  # [py33]
-  script: python setup.py install --single-version-externally-managed --record record.txt
+  number: 1000
+  script:
+    - cythonize deepgraph/*.pyx  # [py>36]
+    - "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir"
 
 requirements:
   build:
     - {{ compiler('c') }}
   host:
+    - cython
     - python
-    - setuptools
+    - pip
     - numpy
   run:
     - python
