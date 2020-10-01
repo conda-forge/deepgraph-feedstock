@@ -1,6 +1,6 @@
 {% set name = "DeepGraph" %}
-{% set version = "0.2.2" %}
-{% set sha256 = "7047e429dd5cc6e73b8d8f45d2ac615b35b04cd0c9ebd21bee198bea10a3fd46" %}
+{% set version = "0.2.3" %}
+{% set sha256 = "67a5483c7763822fa20e0f815e321a6cc5bb9b48d0755f1154fd28bbfd36ca26" %}
 
 package:
   name: {{ name|lower }}
@@ -12,10 +12,10 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 0
   script:
     - cythonize deepgraph/*.pyx  # [py>36]
-    - "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir"
+    - {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir
 
 requirements:
   build:
@@ -39,7 +39,7 @@ about:
   license: BSD 3-Clause
   license_family: BSD
   license_file: LICENSE.txt
-  summary: 'Analyze Data with Pandas-based Networks.'
+  summary: Analyze Data with Pandas-based Networks.
   description: |
     DeepGraph is a scalable, general-purpose data analysis package. It
     implements a network representation based on pandas DataFrames and
