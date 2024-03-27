@@ -1,6 +1,6 @@
 {% set name = "DeepGraph" %}
-{% set version = "0.2.3" %}
-{% set sha256 = "67a5483c7763822fa20e0f815e321a6cc5bb9b48d0755f1154fd28bbfd36ca26" %}
+{% set version = "0.2.4" %}
+{% set sha256 = "6f6305e4811e713ec02a360a489f1f856be63b4aa4ed0e73ff3729db8b22158b" %}
 
 package:
   name: {{ name|lower }}
@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 5
+  number: 0
   script:
     - cythonize deepgraph/*.pyx  # [py>36]
     - {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir
