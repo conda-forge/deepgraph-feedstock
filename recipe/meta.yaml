@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   script:
     - cythonize deepgraph/*.pyx  # [py>36]
     - {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir
@@ -20,6 +20,7 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
   host:
     - cython
     - python
@@ -27,7 +28,6 @@ requirements:
     - numpy
   run:
     - python
-    - {{ pin_compatible('numpy') }}
     - pandas
 
 test:
