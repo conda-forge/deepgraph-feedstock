@@ -34,14 +34,17 @@ requirements:
 test:
   imports:
     - deepgraph
-  commands:
-    - pytest -v .
+  source_files:
+    - tests/test_CreateEdges.py
+    - tests/test_DeepGraph.py
   requires:
-    - pytest>=7.3.2
-    - pytables>=3.7
-    - scipy>=1.5.4
-    - networkx>=2.4
-    - graph-tool>=2.27
+    - pytest >=7.3.2
+    - pytables >=3.7
+    - scipy >=1.5.4
+    - networkx >=2.4
+    - graph-tool >=2.27
+  commands:
+    - pytest -v tests/
 
 about:
   home: https://github.com/deepgraph/deepgraph
