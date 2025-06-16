@@ -1,4 +1,4 @@
-{% set name = "DeepGraph" %}
+{% set name = "deepgraph" %}
 {% set version = "1.0.0" %}
 {% set sha256 = "d0b49f9bd553eeaf31d6d063bcbed122b77e0c85f018aa6b3ee3be689c20537c" %}
 
