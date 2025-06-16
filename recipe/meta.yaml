@@ -38,7 +38,7 @@ test:
     - pytest -v .
   requires:
     - pytest>=7.3.2
-    - tables>=3.7
+    - pytables>=3.7
     - scipy>=1.5.4
     - networkx>=2.4
     - graph-tool>=2.27
