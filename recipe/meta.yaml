@@ -42,13 +42,13 @@ test:
     - pytables >=3.7
     - scipy >=1.5.4
     - networkx >=2.4
-    - graph-tool >=2.27
+    - graph-tool >=2.27  # [not win]
   commands:
     - pytest -v tests/
 
 about:
   home: https://github.com/deepgraph/deepgraph
-  license: BSD 3-Clause
+  license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
   license_url: https://github.com/deepgraph/deepgraph/blob/master/LICENSE
