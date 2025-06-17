@@ -1,6 +1,6 @@
-{% set name = "DeepGraph" %}
-{% set version = "0.2.4" %}
-{% set sha256 = "6f6305e4811e713ec02a360a489f1f856be63b4aa4ed0e73ff3729db8b22158b" %}
+{% set name = "deepgraph" %}
+{% set version = "1.0.0" %}
+{% set sha256 = "d0b49f9bd553eeaf31d6d063bcbed122b77e0c85f018aa6b3ee3be689c20537c" %}
 
 package:
   name: {{ name|lower }}
@@ -8,44 +8,59 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
-  number: 1
-  script:
-    - cythonize deepgraph/*.pyx  # [py>36]
-    - {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir
+  skip: true  # [py<39]
+  number: 0
+  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir
 
 requirements:
   build:
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
   host:
-    - cython
     - python
+    - wheel
+    - setuptools >=61.0
+    - numpy >=2.0.0
+    - cython >3
     - pip
-    - numpy
   run:
     - python
-    - pandas
+    - pandas >=1.2
 
 test:
   imports:
     - deepgraph
+  source_files:
+    - tests/test_CreateEdges.py  # [not (win and py==39)]
+    - tests/test_DeepGraph.py  # [not (win and py==39)]
+  requires:
+    - pytest >=7.3.2  # [not (win and py==39)]
+    - pytables >=3.7  # [not (win and py==39)]
+    - scipy >=1.5.4  # [not (win and py==39)]
+    - networkx >=2.4  # [not (win and py==39)]
+    - graph-tool >=2.27  # [not win]
+  commands:
+    - pytest -v tests/  # [not (win and py==39)]
 
 about:
   home: https://github.com/deepgraph/deepgraph
-  license: BSD 3-Clause
+  license: BSD-3-Clause
   license_family: BSD
-  license_file: LICENSE.txt
+  license_file: LICENSE
+  license_url: https://github.com/deepgraph/deepgraph/blob/master/LICENSE
   summary: Analyze Data with Pandas-based Networks.
   description: |
     DeepGraph is a scalable, general-purpose data analysis package. It
     implements a network representation based on pandas DataFrames and
     provides methods to construct, partition and plot graphs, to interface
     with popular network packages and more.
+  dev_url: https://deepgraph.readthedocs.io/en/latest/installation.html#installation-from-source-environment-setup
   doc_url: https://deepgraph.readthedocs.io/
+  doc_source_url: https://github.com/deepgraph/deepgraph/blob/master/README.rst
 
 extra:
   recipe-maintainers:
