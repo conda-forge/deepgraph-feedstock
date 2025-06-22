@@ -1,6 +1,6 @@
 {% set name = "deepgraph" %}
-{% set version = "1.0.0" %}
-{% set sha256 = "d0b49f9bd553eeaf31d6d063bcbed122b77e0c85f018aa6b3ee3be689c20537c" %}
+{% set version = "1.1.0" %}
+{% set sha256 = "781ee1d41b73aa921ab592e62428439f47408915e8955455397ba124c11025f2" %}
 
 package:
   name: {{ name|lower }}
