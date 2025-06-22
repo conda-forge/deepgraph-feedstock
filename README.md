@@ -5,9 +5,11 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/deepgraph-feeds
 
 Home: https://github.com/deepgraph/deepgraph
 
-Package license: BSD 3-Clause
+Package license: [BSD-3-Clause](https://github.com/deepgraph/deepgraph/blob/master/LICENSE)
 
 Summary: Analyze Data with Pandas-based Networks.
+
+Development: https://deepgraph.readthedocs.io/en/latest/installation.html#installation-from-source-environment-setup
 
 Documentation: https://deepgraph.readthedocs.io/
 
