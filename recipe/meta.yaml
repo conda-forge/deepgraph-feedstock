@@ -35,8 +35,7 @@ test:
   imports:
     - deepgraph
   source_files:
-    - tests/test_CreateEdges.py  # [not (win and py==39)]
-    - tests/test_DeepGraph.py  # [not (win and py==39)]
+    - tests/test_*.py  # [not (win and py==39)]
   requires:
     - pytest >=7.3.2  # [not (win and py==39)]
     - pytables >=3.7  # [not (win and py==39)]
