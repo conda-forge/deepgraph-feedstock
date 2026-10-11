@@ -41,7 +41,7 @@ test:
     - pytables >=3.7  # [not (win and py==39)]
     - scipy >=1.5.4  # [not (win and py==39)]
     - networkx >=2.4  # [not (win and py==39)]
-    - graph-tool >=2.27  # [not win]
+    - graph-tool >=2.27  # [not win and not (osx and x86_64)]
   commands:
     - pytest -v tests/  # [not (win and py==39)]
 
