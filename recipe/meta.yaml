@@ -8,12 +8,12 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.tar.gz
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
   skip: true  # [py<39]
-  number: 1
+  number: 2
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir
 
 requirements:
@@ -41,7 +41,7 @@ test:
     - pytables >=3.7  # [not (win and py==39)]
     - scipy >=1.5.4  # [not (win and py==39)]
     - networkx >=2.4  # [not (win and py==39)]
-    - graph-tool >=2.27  # [not win]
+    - graph-tool >=2.27  # [not win and not (osx and x86_64)]
   commands:
     - pytest -v tests/  # [not (win and py==39)]
 
